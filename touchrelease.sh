@@ -8,7 +8,8 @@ do
 	then
 		touch -c -t $reldt$time $file
 		reldt=""
-ls -l $file
+	else
+		echo "No release date or nfo for: $file"
 	fi
 done
 
