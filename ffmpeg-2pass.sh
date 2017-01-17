@@ -1,0 +1,1 @@
+ffmpeg -i "$1" -level 41 -s 1280x720 -aspect 16:9 -r 30000/1001 -b:v 1550k -bt 1792k -vcodec libx264 -pass 1 -an "$1"-out.mp4 && ffmpeg -y -i "$1" -level 41 -s 1280x720 -aspect 16:9 -r 30000/1001 -b:v 1550k -bt 1792k -vcodec libx264 -pass 2 -acodec libfaac -ac 6 -ar 48000 -ab 320 "$1"-out.mp4
