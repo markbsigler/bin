@@ -1,0 +1,14 @@
+find . -name '*YTS*' -print | awk '{print "\42"$n"\42"}' | xargs rm
+
+find . -type d -name '@eaDir' -print0 | xargs rm -rf
+
+rsync -avz --progress --exclude '*@SynoResource' --exclude '@eaDir' --exclude '*.vsmeta' --exclude '.DS_Store' /volume1/photo/* admin@192.168.50:/share/Multimedia/Photos
+
+rsync -avz --progress --exclude '*@SynoResource' --exclude '@eaDir' --exclude '*.vsmeta' --exclude '.DS_Store' /volume1/video/Movies admin@192.168.0.50:/share/Multimedia/Videos/
+
+rsync -avz --progress --exclude '*@SynoResource' --exclude '@eaDir' --exclude '*.vsmeta' --exclude '.DS_Store' /volume1/video/TV_Shows admin@192.168.0.50:/share/Multimedia/Videos/
+
+rsync -avz --progress --exclude '*@SynoResource' --exclude '@eaDir' --exclude '*.vsmeta' --exclude '.DS_Store' /volume1/video/Anime admin@192.168.0.50:/share/Multimedia/Videos/
+
+cat ~/.ssh/id_rsa.pub | ssh admin@192.168.0.50 'umask 0077; mkdir -p .ssh; cat >> .ssh/authorized_keys && echo "Key copied"'
+cat ~/.ssh/id_rsa.pub | ssh admin@192.168.0.20 'umask 0077; mkdir -p .ssh; cat >> .ssh/authorized_keys && echo "Key copied"'
