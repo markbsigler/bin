@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo dscacheutil -flushcache;sudo dscacheutil -statistics;say flush
+sudo killall -HUP mDNSResponder

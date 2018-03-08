@@ -165,7 +165,7 @@ process_file() {
 		if [ "$OUTPUT_GFORMAT" = "ok" ]; then
 			OUTPUT_GFORMAT=$EXTENSION
 		fi
-		$FFMPEG -loglevel error -stats -i "$FILENAME" -map 0 -scodec copy -vcodec "$OUTPUT_VCODEC" -acodec "$OUTPUT_ACODEC" "$FILENAME.$OUTPUT_GFORMAT" && on_success "$FILENAME" || on_failure "$FILENAME"
+		$FFMPEG -loglevel error -stats -i "$FILENAME" -map 0 -scodec copy -vcodec "$OUTPUT_VCODEC" -acodec "$OUTPUT_ACODEC" -sn "$FILENAME.$OUTPUT_GFORMAT" && on_success "$FILENAME" || on_failure "$FILENAME"
 		echo ""
 	fi
 }
