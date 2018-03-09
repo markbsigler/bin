@@ -13,8 +13,8 @@ npm install npm -g
 npm update -g
 
 # Update python
-pip2 install --upgrade pip setuptools
-pip2 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U
+pip install --upgrade pip setuptools
+pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U
 
 # Update Ruby & gems
 sudo gem update —system
