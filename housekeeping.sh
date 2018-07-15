@@ -6,7 +6,8 @@ sudo softwareupdate -i -a
 # Update Homebrew (Cask) & packages
 brew update
 brew upgrade
-brew cleanup
+brew cleanup -s
+brew cask cleanup
 
 # Update npm & packages
 npm install npm -g
